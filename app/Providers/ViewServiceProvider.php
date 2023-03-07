@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\View;
 class ViewServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +19,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+	    View::composer('*', 'App\Http\View\Composers\SidebarComposer');
     }
 }
